@@ -1,10 +1,14 @@
 pipeline {
+    environment{
+        FNAME = "JOHN"
+    }
     agent any
     stages{
         stage('checkout code'){
             steps{
                 git url:"https://github.com/Ramyagowthami/pipeline/"
                 echo 'checkout completed'
+               sh "echo hello ${FNAME}"
             }
         }
         stage('codecompile'){
@@ -34,6 +38,7 @@ pipeline {
         }
         }
         stage('package the code'){
+            when{ expression {env.GIT_BRANCH == 'origin/dev'}}
             steps{
                 echo 'package the code'
                 sh "mvn package"
