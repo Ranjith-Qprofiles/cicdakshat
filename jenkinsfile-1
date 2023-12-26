@@ -10,7 +10,7 @@ pipeline
         }
         stage('code complie'){
             steps{
-                echo 'convert the code from human readable to mechine code'
+                echo 'convert the code from human readable to mechine code...........'
                 sh "mvn compile"
             }
         }
