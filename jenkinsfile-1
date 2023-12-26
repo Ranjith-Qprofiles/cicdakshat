@@ -1,0 +1,30 @@
+pipeline
+{
+    agent any
+    stages{
+        stage('code checkout'){
+            steps{
+                git url:'https://github.com/Balachandrakrishnappa/DevOpsClassCodes/'
+                echo 'checking the code'
+            }
+        }
+        stage('code complie'){
+            steps{
+                echo 'convert the code from human readable to mechine code'
+                sh "mvn compile"
+            }
+        }
+        stage('code testing'){
+            steps{
+                echo 'testing the fuctionality of the code'
+                sh "mvn test"
+            }
+        }
+        stage('quality assurence'){
+            steps{
+                echo 'testing the quality of the code'
+                sh "mvn pmd:pmd"
+            }
+        }
+    }
+}
