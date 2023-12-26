@@ -5,7 +5,7 @@ pipeline
         stage('code checkout'){
             steps{
                 git url:'https://github.com/Balachandrakrishnappa/DevOpsClassCodes/'
-                echo 'checking the code'
+                echo 'checking the code.....'
             }
         }
         stage('code complie'){
